@@ -15,7 +15,7 @@ dotenv.config();
 connectDB();
 
 const corsOptions = {
-  origin: "*",
+  origin: "https://quickchat-zjfr.onrender.com/",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
@@ -53,7 +53,7 @@ const server = app.listen(PORT, console.log(`listening on ${PORT}`));
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "*",
+    origin: "https://quickchat-zjfr.onrender.com/",
   },
 });
 
