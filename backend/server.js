@@ -13,7 +13,7 @@ const path = require("path");
 const app = express();
 dotenv.config();
 connectDB();
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 app.use(express.json()); //accepting json data from frontend
 
