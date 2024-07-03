@@ -5,8 +5,8 @@
   "type": "module",
   "proxy": "http://127.0.0.1:5000",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --openssl-legacy-provider",
+    "build": "vite --openssl-legacy-provider build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
