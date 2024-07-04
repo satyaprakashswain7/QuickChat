@@ -12,7 +12,7 @@ import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { ChatState } from "../../Content/ChatProvider";
+import { ChatState } from "../../../Context/ChatProvider";
 
 const Login = () => {
   const [show, setShow] = useState(false);
