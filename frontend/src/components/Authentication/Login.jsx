@@ -12,14 +12,17 @@ import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { ChatState } from "../../Content/ChatProvider";
 
 const Login = () => {
   const [show, setShow] = useState(false);
   const [password, setPassword] = useState();
   const [email, setEmail] = useState();
   const [loading, setLoading] = useState(false);
+
   const history = useHistory();
   const toast = useToast();
+  const { setUser } = ChatState();
 
   const handleClick = () => {
     setShow(!show);
@@ -52,7 +55,7 @@ const Login = () => {
         { email, password },
         config
       );
-      console.log(data);
+
       toast({
         title: "Login Successful!",
         status: "success",
@@ -60,6 +63,8 @@ const Login = () => {
         isClosable: true,
         position: "bottom",
       });
+
+      setUser(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
       history.push("/chats");
@@ -120,7 +125,6 @@ const Login = () => {
           setEmail("guest@example.com");
           setPassword("123456");
         }}
-        isLoading={loading}
       >
         Get Guest user credentials
       </Button>
